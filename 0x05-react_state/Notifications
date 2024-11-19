@@ -1,0 +1,37 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class Notifications extends React.Component {
+  render() {
+    const { displayDrawer, handleDisplayDrawer, handleHideDrawer } = this.props;
+
+    return (
+      <div className="Notifications">
+        <div className="menuItem" onClick={handleDisplayDrawer}>
+          Your notifications
+        </div>
+        {displayDrawer && (
+          <div className="NotificationPanel">
+            <button onClick={handleHideDrawer}>Close</button>
+            {/* Display notifications here */}
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+Notifications.propTypes = {
+  displayDrawer: PropTypes.bool,
+  handleDisplayDrawer: PropTypes.func,
+  handleHideDrawer: PropTypes.func,
+};
+
+Notifications.defaultProps = {
+  displayDrawer: false,
+  handleDisplayDrawer: () => {},
+  handleHideDrawer: () => {},
+};
+
+export default Notifications;
+

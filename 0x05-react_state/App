@@ -1,0 +1,23 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import App from './App';
+
+describe('App Component', () => {
+  it('should have `displayDrawer` state default to false', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('displayDrawer')).toBe(false);
+  });
+
+  it('should change `displayDrawer` state to true when calling `handleDisplayDrawer`', () => {
+    const wrapper = shallow(<App />);
+    wrapper.instance().handleDisplayDrawer();
+    expect(wrapper.state('displayDrawer')).toBe(true);
+  });
+
+  it('should change `displayDrawer` state to false when calling `handleHideDrawer`', () => {
+    const wrapper = shallow(<App />);
+    wrapper.instance().handleHideDrawer();
+    expect(wrapper.state('displayDrawer')).toBe(false);
+  });
+});
+
